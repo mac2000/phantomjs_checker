@@ -31,8 +31,8 @@ Usage example:
 
     node batch.js links.txt
     [>] http://rabota.ua
-    [>] http://php.mac.rabota.ua/broken.html
-    [<] http://php.mac.rabota.ua/broken.html
+    [>] http://rabota.ua/broken.html
+    [<] http://rabota.ua/broken.html
     [<] http://rabota.ua
 
     [+] 2 URLs processed in 3 seconds
@@ -40,11 +40,11 @@ Usage example:
 
     [!] Bad status errors
     [!] 404
-        http://php.mac.rabota.ua/app.js
-        http://php.mac.rabota.ua/app.js
+        http://rabota.ua/app.js
+        http://rabota.ua/app.js
 
     [!] java script errors
-    [!] http://php.mac.rabota.ua/broken.html
+    [!] http://rabota.ua/broken.html
         TypeError: 'null' is not an object (evaluating 'document.getElementsByTagName('P').item(1).innerHTML = 'World'')
 
 
