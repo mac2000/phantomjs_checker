@@ -1,14 +1,4 @@
 http://rabota.ua
-http://rabota.ua/jobsearch/cvwelcome
-http://rabota.ua/jobsearch/login
-http://rabota.ua/jobsearch/sitemap
-http://rabota.ua/employer/register
-http://rabota.ua/employer/categories
-http://rabota.ua/employer/find
-http://rabota.ua/passwordrecovery
-http://rabota.ua/jobsearch/register
-http://rabota.ua/employer/register
-http://rabota.ua/jobsearch/vip
-http://rabota.ua/feedback
-http://rabota.ua/rss
+http://mac-blog.org.ua/sitemap.xml
+http://php.mac.rabota.ua/index.html
 http://php.mac.rabota.ua/broken.html

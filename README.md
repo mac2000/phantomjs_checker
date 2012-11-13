@@ -1,51 +1,52 @@
-Phantom.js Checker
-==================
+Links checker
+=============
 
-Example set of scripts to check site for 404 and java script errors that can be run on cron or event better as your version control system hook.
+Script gets set of links to check from given sitemaps and links, then it checks that all pages are work and have no errors or broken links on them.
 
 How it works
 ============
 
-check.js
---------
+batch.coffee
+------------
 
-Loads desired url and logs all java script errors and resources that was not loaded.
+You can:
+
+check one link: `coffee batch.coffee http://rabota.ua`
+check many links: `coffee batch.coffee http://mac-blog.org.ua/sitemap.xml`
+check links from file: `coffee batch.coffee links.txt`
+
+Notice that file can contain both links to pages and links to sitemaps.
 
 Usage example:
 
-    phantomjs check.js http://rabota.ua
+    coffee batch.coffee links.txt
+    [+] 4 link(s) to check retrieved
+    [HTTP:404] http://php.mac.rabota.ua/index.html > http://php.mac.rabota.ua/xxx.js
+    [JS] http://php.mac.rabota.ua/broken.html > TypeError: 'null' is not an object (evaluating 'document.getElementsByTagName('P').item(1).innerHTML = 'World'')
+    [HTTP:404] http://php.mac.rabota.ua/index.html > http://mac-blog.org.ua/aaa/bbbb/ccc.html
+    [HTTP:500] http://rabota.ua > http://top.rabota.ua/
+    [+] All done
+
+check.coffee
+------------
+
+`batch.coffee` uses this script to check page for javascript errors, missed resources and to get all links on page.
+
+Usage example:
+
+    phantomjs check.coffee http://rabota.ua
 
     {
         "javascript_errors":[],
         "network_errors":[],
         "status":"success",
-        "url":"http://rabota.ua"
+        "location":"http://rabota.ua",
+        "url":"http://rabota.ua",
+        "links":[
+            "http://rabota.ua/jobsearch/cvbuilder",
+            "http://rabota.ua/jobsearch/login"
+        ]
     }
-
-batch.js
---------
-
-Loads butch of urls from file and calls `check.js` for each of them in parallel.
-
-Usage example:
-
-    node batch.js links.txt
-    [>] http://rabota.ua
-    [>] http://rabota.ua/broken.html
-    [<] http://rabota.ua/broken.html
-    [<] http://rabota.ua
-
-    [+] 2 URLs processed in 3 seconds
-    [!] 1 errors found
-
-    [!] Bad status errors
-    [!] 404
-        http://rabota.ua/app.js
-        http://rabota.ua/app.js
-
-    [!] java script errors
-    [!] http://rabota.ua/broken.html
-        TypeError: 'null' is not an object (evaluating 'document.getElementsByTagName('P').item(1).innerHTML = 'World'')
 
 
 Install
